@@ -8,7 +8,12 @@
             <input type="text" id="username" formControlName="username" class="form-control">
             <span class="text-danger"
               *ngIf="!myForm.get('userData.username').valid && myForm.get('userData.username').touched">
-              Please enter a valid username
+               <span *ngIf="myForm.get('userData.username').errors['nameIsForbidden']">
+                This name is Invalid!
+               </span>
+               <span *ngIf="myForm.get('userData.username').errors['required']">
+                This field is required!
+               </span>
             </span>
           </div>
           <div class="form-group">
